@@ -4,14 +4,40 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <h2>Links</h2>
+
+  <div class="field">
+    <%= f.label :itunes %>
+    <%= f.text_field :itunes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitcher %>
+    <%= f.text_field :stitcher %>
+  </div>
+
+  <div class="field">
+    <%= f.label :podbay %>
+    <%= f.text_field :podbay %>
+  </div>
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
