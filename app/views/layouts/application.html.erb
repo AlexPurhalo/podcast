@@ -8,8 +8,15 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'></head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice %>
+    <p class="notice">
+      <%= notice %>
+    </p>
+<% elsif alert %>
+    <p class="alert">
+      <%= alert %>
+    </p>
+<% end %>
 <%= yield %>
 
 </body>

@@ -4,16 +4,22 @@
       <a id="logo" href="#">Podcast.fm</a>
       <nav>
         <ul>
-          <li><a href="#">Expolre</a></li>
-          <li><a href="#">Sign In</a></li>
-          <li><a href=#">Create a Podcast</a></li>
+          <% unless podcast_signed_in? %>
+            <li><a href="#">Expolre</a></li>
+            <li><%= link_to "Sign In", new_podcast_session_path %></li>
+            <li><%= link_to "Create a Podcast", new_podcast_registration_path %></li>
+          <% else %>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Expolre</a></li>
+              <li><%= link_to "Sign Out", destroy_podcast_session_path, :method => :delete %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
   </header>
   <div class="wrapper_skinny">
     <h1>Discover your new favorite podcast, ir create your own.</h1>
-    <a class="button button_highlight" href="#">Create a Podcast</a>
+    <%= link_to "Create a Podcast", new_podcast_registration_path, class: "button button_highlight" %>
     <a class="button button_white" href="#">Explore</a>
   </div>
 </div>
