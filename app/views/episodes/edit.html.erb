@@ -1,6 +1,8 @@
 <div id="podcast_show">
   <div id="show_banner">
-    <div class="wrapper_skinny"><%= @podcast.title %></div>
+    <div class="wrapper_skinny">
+      <h1><%= @podcast.title %></h1>
+    </div>
   </div>
 
   <div id="links">
@@ -8,7 +10,7 @@
       <ul>
         <li><%= link_to "Episodes", root_path %></li>
         <li><%= link_to "New Episode", new_podcast_episode_path(@podcast) %></li>
-        <li><%= link_to "Account Settings", edit_podcast_registration_path %></li>
+        <li><%= link_to "Account Settings", edit_podcast_registration_path, class: "current"%></li>
         <li><%= link_to "View Podcast", podcast_path(current_podcast) %></li>
       </ul>
     </div>

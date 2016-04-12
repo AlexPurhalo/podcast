@@ -20,8 +20,8 @@
   <div id="breadcrumb">
     <%= link_to podcasts_path do %>
       All Podcasts
-      <span>/</span>
-      The Rocketship Podcast
+    <span>/</span>
+      <%= @podcast.title %>
     <% end %>
   </div>
 
@@ -44,14 +44,8 @@
           </li>
         <% end %>
       </ul>
+      <%= will_paginate @episodes %>
+
     </div>
   </div>
 </div>
-
-<div class="pagination">
-  <span class="previous_page disabled">Previous</span>
-  <em class="current">1</em>
-  <a href="#">2</a>
-  <a class="next_page" href="#">Next</a>
-</div>
-
