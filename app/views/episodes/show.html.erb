@@ -1,0 +1,69 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1><%= @podcast.title %></h1>
+      <p class="description">
+        <%= @podcast.description %>
+      </p>
+      <% unless @podcast.itunes.blank? %>
+          <a href="<%= @podcast.itunes %>" class="subscribe_link">iTunes</a>
+      <% end %>
+      <% unless @podcast.stitcher.blank? %>
+          <a href="<%= @podcast.stitcher %>" class="subscribe_link">Stitcher</a>
+      <% end %>
+      <% unless @podcast.podbay.blank? %>
+          <a href="<%= @podcast.podbay %>" class="subscribe_link">Podbay</a>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="breadcrumb">
+    <%= link_to podcasts_path do %>
+        <%= link_to @podcast.title, podcast_path(@podcast)%>
+        <span>/</span>
+        <%= @episode.title %>
+    <% end %>
+  </div>
+
+  <div id="episode_content">
+    <div class="wrapper_skinny">
+      <%= image_tag @episode.episode_thumbnail.url, class: "current_episode_thumbnail" %>
+      <h2><%= @episode.title %></h2>
+      <p class="description"><%= @episode.description %></p>
+    </div>
+  </div>
+
+
+
+  <div id="episodes">
+    <div class="wrapper_skinny">
+      <ul class="cf">
+        <% @episodes.each do |ep| %>
+          <li class="cf">
+            <div class="episode_thumbnail">
+              <a href="#">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT7vR66BWT_HdVJpwxGJoGBJl5HYfiSKDrsYrzw7kqf2yP6sNyJtHdaAQ" alt="Pieter Levels"/>
+              </a>
+            </div>
+            <div class="episode_overview">
+              <h2>
+                <a href="#">
+                  <%= link_to ep.title, podcast_episode_path(@podcast, ep)%>
+                </a>
+              </h2>
+              <p class="description"><%= truncate(ep.description, length: 160) %></p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <span class="previous_page disabled">Previous</span>
+  <em class="current">1</em>
+  <a href="#">2</a>
+  <a class="next_page" href="#">Next</a>
+</div>
+
